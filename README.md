@@ -1,4 +1,8 @@
 # Evidence-Grounded AML Investigation for Cross-Border SWIFT Payments
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)
+![React](https://img.shields.io/badge/React-18+-blue?logo=react)
+![FastAPI](https://img.shields.io/badge/FastAPI-Production-green?logo=fastapi)
+![OpenAI](https://img.shields.io/badge/OpenAI-API-412991?logo=openai&logoColor=white)
 
 > A governed AML analytics prototype connecting structured SWIFT payment data, payment relationships, a frozen risk model, contextual evidence retrieval, investigator workflow, and AI-assisted case analysis.
 
