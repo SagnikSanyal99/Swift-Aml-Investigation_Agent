@@ -1,0 +1,6 @@
+Condition,PR-AUC,ROC-AUC,Interpretation
+A_ACTUAL,0.780603,0.985775,Actual topology + actual monetary inputs
+B_CONSTANT,0.944459,0.970637,Money neutralized / constant
+C_SHUFFLED,0.943282,0.970390,Money shuffled
+D_RANDOM_TOPOLOGY,0.718471,0.973897,Topology randomized
+E_RANDOM_BOTH,0.651668,0.962111,Topology + money randomized

@@ -1,0 +1,27 @@
+KPI,Value,Layer
+ROC-AUC,0.972667,Frozen model
+PR-AUC,0.554988,Frozen model
+Precision @ 0.50,0.246801,Frozen model
+Recall @ 0.50,0.768501,Frozen model
+F1 @ 0.50,0.373616,Frozen model
+Brier,0.053497,Frozen model
+Payment edges,100000,Graph
+Training edges,80000,Graph
+Test edges,20000,Graph
+Account nodes,36979,Graph
+Bank nodes,150,Graph
+Country nodes,15,Graph
+Selected investigations,1000,Investigation
+Canonical evidence records,30000,Evidence
+Evidence per case,30,Evidence
+Model signal coverage,100,Evidence
+Transaction context coverage,100,Evidence
+Network context coverage,100,Evidence
+Behavioral context coverage,100,Evidence
+Minimum evidence coverage,100,Evidence
+Multi-source coverage,100,Evidence
+GOOD/RICH coverage,100,Evidence
+Ground-truth contamination,0,Governance
+Invalid evidence citations,0,Governance
+LLM successful investigations,32,AI prototype
+LLM fully cited findings,100,AI prototype

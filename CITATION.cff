@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Evidence-Grounded AML Investigation for Cross-Border SWIFT Payments"
+message: "Please cite this repository when referring to the project or its prototype artifacts."
+type: software
+authors:
+  - family-names: "Sanyal"
+    given-names: "Sagnik"
+version: "1.0.0"
+date-released: "2026-09-11"
