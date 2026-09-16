@@ -600,20 +600,7 @@ See [`data/README.md`](data/README.md) for the expected artifact structure.
 
 ---
 
-# 13 — How to Review This Project
-
-## 10-minute executive review
-
-Start with this README, then open the dashboard.
-
-Focus on:
-
-- scale;
-- verified outcomes;
-- investigation workflow;
-- governance.
-
-## 20-minute AML / Operations review
+ AML / Operations review
 
 Open:
 
@@ -638,7 +625,7 @@ Follow [`docs/presentation_sequence.md`](docs/presentation_sequence.md).
 
 ---
 
-# 14 — Repository Validation
+#  — Repository Validation
 
 The repository contains automated validation under:
 
@@ -662,7 +649,7 @@ The dashboard publication workflow is:
 
 ---
 
-# 15 — Limitations
+#  Limitations
 
 ### Synthetic environment
 
