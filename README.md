@@ -5,7 +5,6 @@
 ![OpenAI](https://img.shields.io/badge/OpenAI-API-412991?logo=openai&logoColor=white)
 
 > A governed AML analytics prototype connecting structured SWIFT payment data, payment relationships, a frozen risk model, contextual evidence retrieval, investigator workflow, and AI-assisted case analysis.
-
 ## Executive summary
 
 The project demonstrates an auditable investigation architecture for synthetic cross-border SWIFT payments. The final validated system connects payment data to payment relationships, generates a frozen predictive signal, attaches contextual evidence, creates investigation cases, and provides a downstream AI-assisted investigation prototype.
