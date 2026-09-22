@@ -59,7 +59,7 @@ Provides:
 
 ### Interactive dashboard
 
-**[Open the Interactive AML Investigation Dashboard](<YOUR_GITHUB_PAGES_URL>)**
+**[Open the Interactive AML Investigation Dashboard](<https://sagniksanyal99.github.io/Swift-Aml-Investigation_Agent/>)**
 
 The dashboard is the primary visual demonstration of the project,
 while the repository contains the supporting notebooks, results,
