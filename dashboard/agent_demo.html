@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AML Investigation Assistant — Stakeholder Demo</title>
+<style>
+:root{--bg:#f4f6f9;--ink:#17202a;--muted:#687386;--navy:#111827;--line:#e5e7eb;--card:#fff;--accent:#2563eb;--ok:#047857;--warn:#b45309}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}
+.top{background:linear-gradient(120deg,#111827,#1f2937);color:#fff;padding:34px 5vw 28px}.top h1{margin:0 0 8px;font-size:32px}.top p{max-width:980px;color:#d1d5db;line-height:1.55;margin:0}
+.wrap{max-width:1400px;margin:auto;padding:24px}.notice{background:#eef2ff;border:1px solid #c7d2fe;border-left:5px solid var(--accent);padding:16px;border-radius:10px;margin-bottom:18px;line-height:1.55}
+.grid{display:grid;grid-template-columns:320px 1fr;gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 4px 14px rgba(15,23,42,.06);padding:18px}.card h2,.card h3{margin-top:0}.select,.btn{width:100%;padding:11px 12px;border-radius:9px;border:1px solid #d1d5db;background:#fff;font-size:14px}.btn{background:var(--navy);color:#fff;border:0;font-weight:700;cursor:pointer;margin-top:10px}.btn.secondary{background:#e5e7eb;color:#111827}.pill{display:inline-block;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:700;margin:2px 4px 2px 0}.pill.ok{background:#ecfdf5;color:var(--ok)}.pill.demo{background:#fff7ed;color:var(--warn)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 18px}.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px}.kpi .v{font-size:23px;font-weight:800}.kpi .l{font-size:11px;color:var(--muted);margin-top:4px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}.step{padding:11px;border-radius:10px;background:#f3f4f6;color:#6b7280;text-align:center;font-size:12px;font-weight:700}.step.on{background:#dbeafe;color:#1d4ed8}.step.done{background:#ecfdf5;color:#047857}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.evidence{border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;background:#fafafa}.evidence b{display:block;margin-bottom:5px}.analysis{min-height:230px;background:#0f172a;color:#e5e7eb;border-radius:12px;padding:18px;line-height:1.65}.citation{display:inline-block;background:#1e3a8a;color:#dbeafe;padding:2px 6px;border-radius:5px;font-size:11px;margin:2px}
+.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.table th{color:#475569;background:#f8fafc}.footer{padding:28px;text-align:center;color:#7b8494;font-size:12px}
+@media(max-width:950px){.grid,.two{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="top">
+  <h1>AML Investigation Assistant</h1>
+  <p>Stakeholder demonstration of how a selected AML case moves from model signal to contextual evidence and investigator-oriented AI assistance.</p>
+</div>
+<div class="wrap">
+  <div class="notice">
+    <b>Public demonstration mode.</b> This page demonstrates the stakeholder workflow using the validated project structure and persisted validation results. The public repository does not contain the private text of the 32 persisted AI investigations, so this page does <b>not fabricate case-level findings</b>. The AI panel shows where evidence-cited analysis is presented in the validated workflow.
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v">1,000</div><div class="l">Selected investigation cases</div></div>
+    <div class="kpi"><div class="v">30,000</div><div class="l">Canonical evidence records</div></div>
+    <div class="kpi"><div class="v">100%</div><div class="l">Model / transaction / network / behavior coverage</div></div>
+    <div class="kpi"><div class="v">32</div><div class="l">Persisted AI investigations</div></div>
+    <div class="kpi"><div class="v">100%</div><div class="l">Fully cited successful findings</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Invalid evidence citations</div></div>
+  </div>
+
+  <div class="grid">
+    <aside class="card">
+      <h2>1. Select a case</h2>
+      <p style="color:var(--muted);font-size:13px;line-height:1.5">The selector represents the investigator's starting point. Case-level identifiers are intentionally not exposed in the public demo dataset.</p>
+      <select id="caseSelect" class="select">
+        <option value="demo">Demonstration case — validated workflow</option>
+        <option value="model">Model-led investigation</option>
+        <option value="network">Network-context review</option>
+      </select>
+      <button class="btn" id="runBtn">Start investigation</button>
+      <button class="btn secondary" id="resetBtn">Reset</button>
+
+      <h3 style="margin-top:22px">Validated inputs</h3>
+      <span class="pill ok">Model signal available</span>
+      <span class="pill ok">Transaction context available</span>
+      <span class="pill ok">Network context available</span>
+      <span class="pill ok">Behavior context available</span>
+
+      <h3 style="margin-top:22px">Governance</h3>
+      <table class="table">
+        <tr><td>Ground truth supplied to AI</td><td><b>NO</b></td></tr>
+        <tr><td>AI modifies GNN score</td><td><b>NO</b></td></tr>
+        <tr><td>Model retrained</td><td><b>NO</b></td></tr>
+        <tr><td>Evidence citations</td><td><b>Validated</b></td></tr>
+      </table>
+    </aside>
+
+    <main>
+      <div class="card">
+        <h2 id="caseTitle">Demonstration investigation</h2>
+        <div class="steps">
+          <div class="step" id="s1">1. Case selected</div>
+          <div class="step" id="s2">2. Model signal</div>
+          <div class="step" id="s3">3. Evidence</div>
+          <div class="step" id="s4">4. AI analysis</div>
+          <div class="step" id="s5">5. Human review</div>
+        </div>
+
+        <div class="two">
+          <section class="card" style="box-shadow:none">
+            <h3>Why the case is being reviewed</h3>
+            <p id="reason" style="line-height:1.55;color:#374151">The validated workflow begins with a frozen model signal. In the public demo, the exact private case score is intentionally not reproduced.</p>
+            <span class="pill demo">Synthetic validation environment</span>
+            <span class="pill ok">Frozen model</span>
+          </section>
+          <section class="card" style="box-shadow:none">
+            <h3>Available evidence</h3>
+            <div class="evidence"><b>Model signal</b>Validated coverage: 1,000 / 1,000 selected cases.</div>
+            <div class="evidence"><b>Transaction context</b>Validated coverage: 1,000 / 1,000 selected cases.</div>
+            <div class="evidence"><b>Network context</b>Validated coverage: 1,000 / 1,000 selected cases.</div>
+            <div class="evidence"><b>Behavior context</b>Validated coverage: 1,000 / 1,000 selected cases.</div>
+          </section>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <h2>2. Evidence package</h2>
+        <p style="color:var(--muted);font-size:13px">The validated evidence store contains 30,000 records for 1,000 selected cases, averaging 30 records per case.</p>
+        <table class="table">
+          <thead><tr><th>Evidence class</th><th>Validated records</th><th>Coverage</th></tr></thead>
+          <tbody>
+            <tr><td>Transaction context</td><td>19,000</td><td>100%</td></tr>
+            <tr><td>Network context</td><td>6,000</td><td>100%</td></tr>
+            <tr><td>Model signal</td><td>3,000</td><td>100%</td></tr>
+            <tr><td>Behavior context</td><td>2,000</td><td>100%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <h2>3. AI-assisted investigation</h2>
+        <div class="analysis" id="analysis">
+          <b>Agent status:</b> waiting for investigator to start the demonstration.<br><br>
+          The production-style flow is:<br>
+          <span class="citation">model signal</span>
+          →
+          <span class="citation">retrieved evidence</span>
+          →
+          <span class="citation">evidence-cited findings</span>
+          →
+          <span class="citation">investigator review</span>
+          <br><br>
+          <span style="color:#93c5fd"><b>Important:</b> the public repository does not contain the private text generated by the 32 successful AI investigations. This demo therefore shows the validated workflow rather than inventing a case narrative.</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <h2>4. Human decision point</h2>
+        <div class="two">
+          <button class="btn secondary" onclick="showOutcome('Continue review','The investigator continues reviewing the evidence package.')">Continue review</button>
+          <button class="btn secondary" onclick="showOutcome('Request more evidence','The investigator requests additional context before reaching a conclusion.')">Request more evidence</button>
+        </div>
+        <p id="outcome" style="margin-bottom:0;color:var(--muted)">The prototype supports investigation; it does not automatically close or clear a case.</p>
+      </div>
+    </main>
+  </div>
+</div>
+<div class="footer">Stakeholder-facing demonstration • Synthetic research prototype • AI findings are not fabricated in this public demo</div>
+<script>
+const steps=['s1','s2','s3','s4','s5'];
+const runBtn=document.getElementById('runBtn');
+const analysis=document.getElementById('analysis');
+const reason=document.getElementById('reason');
+const title=document.getElementById('caseTitle');
+let timer=null;
+function clearSteps(){steps.forEach(id=>document.getElementById(id).className='step');}
+function advance(i){
+  for(let j=0;j<=i;j++) document.getElementById(steps[j]).className='step '+(j<i?'done':'on');
+}
+function start(){
+  clearTimeout(timer);
+  clearSteps();
+  const mode=document.getElementById('caseSelect').value;
+  const labels={demo:'Demonstration investigation',model:'Model-led investigation',network:'Network-context review'};
+  title.textContent=labels[mode];
+  reason.textContent='The selected case enters the workflow because the frozen analytical layer has produced a review signal. The public page does not invent a private case score or private transaction details.';
+  advance(0);
+  timer=setTimeout(()=>{advance(1);},650);
+  timer=setTimeout(()=>{advance(2);},1350);
+  timer=setTimeout(()=>{advance(3); analysis.innerHTML='<b>Agent status:</b> evidence assembled.<br><br>The validated investigation workflow uses the model signal together with transaction, network and behavioral evidence, then generates an evidence-cited investigator work product.<br><br><span class="citation">Model signal</span><span class="citation">Transaction context</span><span class="citation">Network context</span><span class="citation">Behavior context</span><br><br><span style="color:#93c5fd"><b>Public-demo limitation:</b> the exact text of the 32 persisted successful AI investigations is not included in this repository, so no case-level conclusion is fabricated here.</span>';},2050);
+  timer=setTimeout(()=>{advance(4);},2850);
+}
+function reset(){clearTimeout(timer);clearSteps();analysis.innerHTML='<b>Agent status:</b> waiting for investigator to start the demonstration.<br><br>The production-style flow is:<br><span class="citation">model signal</span> → <span class="citation">retrieved evidence</span> → <span class="citation">evidence-cited findings</span> → <span class="citation">investigator review</span>';document.getElementById('outcome').textContent='The prototype supports investigation; it does not automatically close or clear a case.';}
+function showOutcome(label,text){document.getElementById('outcome').innerHTML='<b>'+label+':</b> '+text;}
+runBtn.addEventListener('click',start);document.getElementById('resetBtn').addEventListener('click',reset);
+</script>
+</body>
+</html>
