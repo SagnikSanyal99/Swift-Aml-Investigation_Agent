@@ -1,12 +1,14 @@
-# Agent demo result policy
+# Public Agent Demo Data Boundary
 
-The public repository intentionally does not contain the raw text of the 32 persisted successful AI investigations.
+This directory documents the boundary for the stakeholder-facing investigation assistant.
 
-The public demo therefore uses validated aggregate outcomes only:
+The public repository contains validated aggregate results but not the private text of individual successful AI investigations.
 
-- 32 persisted successful investigations
-- 100% fully cited successful findings
-- 0 invalid evidence citations
-- 0 explicit ground-truth contamination
+Validated aggregate evidence:
 
-This prevents fabricated case narratives from being presented as actual model output.
+- Successful persisted AI investigations: **32**
+- Fully cited successful findings: **100%**
+- Invalid evidence citations: **0**
+- Ground-truth supplied to AI: **NO**
+
+The public dashboard therefore uses a representative walkthrough rather than inventing case-specific AI findings.

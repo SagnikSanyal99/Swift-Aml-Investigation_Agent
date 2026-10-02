@@ -2,165 +2,175 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AML Investigation Assistant — Stakeholder Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AML Investigation Assistant — Stakeholder Walkthrough</title>
 <style>
-:root{--bg:#f4f6f9;--ink:#17202a;--muted:#687386;--navy:#111827;--line:#e5e7eb;--card:#fff;--accent:#2563eb;--ok:#047857;--warn:#b45309}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}
-.top{background:linear-gradient(120deg,#111827,#1f2937);color:#fff;padding:34px 5vw 28px}.top h1{margin:0 0 8px;font-size:32px}.top p{max-width:980px;color:#d1d5db;line-height:1.55;margin:0}
-.wrap{max-width:1400px;margin:auto;padding:24px}.notice{background:#eef2ff;border:1px solid #c7d2fe;border-left:5px solid var(--accent);padding:16px;border-radius:10px;margin-bottom:18px;line-height:1.55}
-.grid{display:grid;grid-template-columns:320px 1fr;gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 4px 14px rgba(15,23,42,.06);padding:18px}.card h2,.card h3{margin-top:0}.select,.btn{width:100%;padding:11px 12px;border-radius:9px;border:1px solid #d1d5db;background:#fff;font-size:14px}.btn{background:var(--navy);color:#fff;border:0;font-weight:700;cursor:pointer;margin-top:10px}.btn.secondary{background:#e5e7eb;color:#111827}.pill{display:inline-block;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:700;margin:2px 4px 2px 0}.pill.ok{background:#ecfdf5;color:var(--ok)}.pill.demo{background:#fff7ed;color:var(--warn)}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 18px}.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px}.kpi .v{font-size:23px;font-weight:800}.kpi .l{font-size:11px;color:var(--muted);margin-top:4px}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}.step{padding:11px;border-radius:10px;background:#f3f4f6;color:#6b7280;text-align:center;font-size:12px;font-weight:700}.step.on{background:#dbeafe;color:#1d4ed8}.step.done{background:#ecfdf5;color:#047857}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.evidence{border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;background:#fafafa}.evidence b{display:block;margin-bottom:5px}.analysis{min-height:230px;background:#0f172a;color:#e5e7eb;border-radius:12px;padding:18px;line-height:1.65}.citation{display:inline-block;background:#1e3a8a;color:#dbeafe;padding:2px 6px;border-radius:5px;font-size:11px;margin:2px}
-.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.table th{color:#475569;background:#f8fafc}.footer{padding:28px;text-align:center;color:#7b8494;font-size:12px}
-@media(max-width:950px){.grid,.two{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+:root{--bg:#f4f7fb;--card:#fff;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--navy:#0f172a;--blue:#2563eb;--blue2:#1d4ed8;--green:#047857;--greenbg:#ecfdf5;--amber:#b45309;--amberbg:#fff7ed;--red:#b91c1c;--soft:#f8fafc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}
+a{color:inherit}.top{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:34px 5vw 30px}.top .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#93c5fd;font-weight:800;margin-bottom:9px}.top h1{margin:0 0 8px;font-size:32px}.top p{max-width:980px;color:#dbeafe;line-height:1.6;margin:0}.wrap{max-width:1500px;margin:auto;padding:24px}.notice{background:#eef2ff;border:1px solid #c7d2fe;border-left:5px solid #6366f1;padding:16px;border-radius:12px;margin-bottom:18px;line-height:1.6}.topnav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}.topnav a{padding:9px 12px;border-radius:9px;background:#fff;border:1px solid var(--line);text-decoration:none;font-weight:700;font-size:13px}.topnav a.primary{background:var(--navy);color:#fff;border-color:var(--navy)}.grid{display:grid;grid-template-columns:330px 1fr;gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 6px 20px rgba(15,23,42,.06);padding:18px}.card h2,.card h3{margin-top:0}.label{font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.05em}.select,.btn{width:100%;padding:11px 12px;border-radius:10px;border:1px solid #cbd5e1;background:#fff;font-size:14px}.btn{background:var(--navy);color:#fff;border:0;font-weight:800;cursor:pointer;margin-top:10px}.btn:hover{background:#1e293b}.btn.secondary{background:#e2e8f0;color:#0f172a}.btn.secondary:hover{background:#cbd5e1}.btn.blue{background:var(--blue)}.btn.blue:hover{background:var(--blue2)}.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.chip{display:inline-flex;align-items:center;gap:5px;padding:6px 9px;border-radius:999px;font-size:11px;font-weight:800}.chip.ok{background:var(--greenbg);color:var(--green)}.chip.warn{background:var(--amberbg);color:var(--amber)}.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:0 0 18px}.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px}.kpi .v{font-size:23px;font-weight:900}.kpi .l{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.35}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0}.step{padding:12px;border-radius:11px;background:#f1f5f9;color:#64748b;text-align:center;font-size:12px;font-weight:800}.step.on{background:#dbeafe;color:#1d4ed8}.step.done{background:#ecfdf5;color:#047857}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.evidence{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fbfdff}.evidence .title{font-weight:800}.evidence .meta{color:var(--muted);font-size:12px;margin-top:5px;line-height:1.45}.timeline{display:grid;grid-template-columns:28px 1fr;column-gap:12px}.dot{width:12px;height:12px;border-radius:50%;background:#2563eb;margin:5px 0}.line{width:2px;background:#cbd5e1;height:100%;margin-left:5px}.analysis{background:#0b1220;color:#e5eefc;border-radius:13px;padding:18px;line-height:1.65}.analysis .head{color:#93c5fd;font-weight:900}.citation{display:inline-block;background:#1e3a8a;color:#dbeafe;padding:3px 7px;border-radius:6px;font-size:11px;margin:2px 4px 2px 0}.answer{border-left:4px solid #2563eb;background:#eff6ff;padding:14px;border-radius:10px}.warning{border-left:4px solid #f59e0b;background:#fff7ed;padding:14px;border-radius:10px}.success{border-left:4px solid #10b981;background:#ecfdf5;padding:14px;border-radius:10px}.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.table th{color:#475569;background:#f8fafc}.small{font-size:12px;color:var(--muted);line-height:1.55}.hidden{display:none}.footer{padding:34px;text-align:center;color:#7b8494;font-size:12px}.decision-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.decision{padding:12px;border:1px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;text-align:left}.decision:hover{border-color:#94a3b8;background:#f8fafc}.decision b{display:block;margin-bottom:5px}.statusbar{display:flex;justify-content:space-between;gap:15px;align-items:center;background:#111827;color:#fff;border-radius:12px;padding:12px 14px;margin:12px 0}.statusbar .state{font-weight:800}.public-note{font-size:11px;color:#94a3b8}
+@media(max-width:1100px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:750px){.kpis,.steps,.three,.two,.decision-row{grid-template-columns:1fr}.top h1{font-size:26px}}
 </style>
 </head>
 <body>
 <div class="top">
+  <div class="eyebrow">Stakeholder Experience</div>
   <h1>AML Investigation Assistant</h1>
-  <p>Stakeholder demonstration of how a selected AML case moves from model signal to contextual evidence and investigator-oriented AI assistance.</p>
+  <p>Follow a complete investigation walkthrough: understand why a payment enters review, inspect the available evidence, see how the assistant organizes the investigation, and finish at the human decision point.</p>
 </div>
 <div class="wrap">
+  <div class="topnav">
+    <a href="index.html">← Main dashboard</a>
+    <a class="primary" href="#workbench">Open walkthrough</a>
+  </div>
+
   <div class="notice">
-    <b>Public demonstration mode.</b> This page demonstrates the stakeholder workflow using the validated project structure and persisted validation results. The public repository does not contain the private text of the 32 persisted AI investigations, so this page does <b>not fabricate case-level findings</b>. The AI panel shows where evidence-cited analysis is presented in the validated workflow.
+    <b>Public demonstration mode.</b> The repository contains validated investigation aggregates and the structure of the evidence workflow. The private text of the 32 successful AI investigations is not included in the public repository. Therefore, the case narrative below is a <b>representative public walkthrough</b>; it does not claim to reproduce a private investigation verbatim.
   </div>
 
   <div class="kpis">
-    <div class="kpi"><div class="v">1,000</div><div class="l">Selected investigation cases</div></div>
+    <div class="kpi"><div class="v">1,000</div><div class="l">Selected investigations</div></div>
     <div class="kpi"><div class="v">30,000</div><div class="l">Canonical evidence records</div></div>
-    <div class="kpi"><div class="v">100%</div><div class="l">Model / transaction / network / behavior coverage</div></div>
-    <div class="kpi"><div class="v">32</div><div class="l">Persisted AI investigations</div></div>
-    <div class="kpi"><div class="v">100%</div><div class="l">Fully cited successful findings</div></div>
+    <div class="kpi"><div class="v">30</div><div class="l">Evidence records / case</div></div>
+    <div class="kpi"><div class="v">32</div><div class="l">Persisted successful AI investigations</div></div>
     <div class="kpi"><div class="v">0</div><div class="l">Invalid evidence citations</div></div>
   </div>
 
-  <div class="grid">
-    <aside class="card">
-      <h2>1. Select a case</h2>
-      <p style="color:var(--muted);font-size:13px;line-height:1.5">The selector represents the investigator's starting point. Case-level identifiers are intentionally not exposed in the public demo dataset.</p>
-      <select id="caseSelect" class="select">
-        <option value="demo">Demonstration case — validated workflow</option>
-        <option value="model">Model-led investigation</option>
-        <option value="network">Network-context review</option>
-      </select>
-      <button class="btn" id="runBtn">Start investigation</button>
-      <button class="btn secondary" id="resetBtn">Reset</button>
+  <section class="card" id="workbench">
+    <div class="label">Investigator workbench</div>
+    <h2 style="margin-top:6px">Case walkthrough</h2>
+    <div class="grid">
+      <aside>
+        <div class="card" style="box-shadow:none;background:#fbfdff">
+          <h3>1. Select review scenario</h3>
+          <select id="caseSelect" class="select">
+            <option value="representative">Representative public case</option>
+            <option value="model">Model-led review</option>
+            <option value="network">Network-context review</option>
+          </select>
+          <button class="btn blue" id="runBtn">Start investigation walkthrough</button>
+          <button class="btn secondary" id="resetBtn">Reset</button>
 
-      <h3 style="margin-top:22px">Validated inputs</h3>
-      <span class="pill ok">Model signal available</span>
-      <span class="pill ok">Transaction context available</span>
-      <span class="pill ok">Network context available</span>
-      <span class="pill ok">Behavior context available</span>
+          <h3 style="margin-top:20px">Validated evidence availability</h3>
+          <div class="chips">
+            <span class="chip ok">Model signal 100%</span>
+            <span class="chip ok">Transaction 100%</span>
+            <span class="chip ok">Network 100%</span>
+            <span class="chip ok">Behavior 100%</span>
+            <span class="chip warn">Account context 0%</span>
+          </div>
 
-      <h3 style="margin-top:22px">Governance</h3>
-      <table class="table">
-        <tr><td>Ground truth supplied to AI</td><td><b>NO</b></td></tr>
-        <tr><td>AI modifies GNN score</td><td><b>NO</b></td></tr>
-        <tr><td>Model retrained</td><td><b>NO</b></td></tr>
-        <tr><td>Evidence citations</td><td><b>Validated</b></td></tr>
-      </table>
-    </aside>
+          <h3 style="margin-top:20px">Governance</h3>
+          <table class="table">
+            <tr><td>Ground truth to assistant</td><td><b>NO</b></td></tr>
+            <tr><td>Assistant changes model score</td><td><b>NO</b></td></tr>
+            <tr><td>Model retrained</td><td><b>NO</b></td></tr>
+            <tr><td>Human decision</td><td><b>REQUIRED</b></td></tr>
+          </table>
+        </div>
+      </aside>
 
-    <main>
-      <div class="card">
-        <h2 id="caseTitle">Demonstration investigation</h2>
+      <main>
+        <div class="statusbar"><span class="state" id="agentState">Ready for investigator</span><span class="public-note">Public-safe demonstration</span></div>
+
         <div class="steps">
-          <div class="step" id="s1">1. Case selected</div>
-          <div class="step" id="s2">2. Model signal</div>
-          <div class="step" id="s3">3. Evidence</div>
-          <div class="step" id="s4">4. AI analysis</div>
-          <div class="step" id="s5">5. Human review</div>
+          <div class="step" id="s1">1. Case intake</div>
+          <div class="step" id="s2">2. Signal review</div>
+          <div class="step" id="s3">3. Evidence review</div>
+          <div class="step" id="s4">4. Assistant analysis</div>
+          <div class="step" id="s5">5. Human decision</div>
         </div>
 
         <div class="two">
-          <section class="card" style="box-shadow:none">
-            <h3>Why the case is being reviewed</h3>
-            <p id="reason" style="line-height:1.55;color:#374151">The validated workflow begins with a frozen model signal. In the public demo, the exact private case score is intentionally not reproduced.</p>
-            <span class="pill demo">Synthetic validation environment</span>
-            <span class="pill ok">Frozen model</span>
-          </section>
-          <section class="card" style="box-shadow:none">
-            <h3>Available evidence</h3>
-            <div class="evidence"><b>Model signal</b>Validated coverage: 1,000 / 1,000 selected cases.</div>
-            <div class="evidence"><b>Transaction context</b>Validated coverage: 1,000 / 1,000 selected cases.</div>
-            <div class="evidence"><b>Network context</b>Validated coverage: 1,000 / 1,000 selected cases.</div>
-            <div class="evidence"><b>Behavior context</b>Validated coverage: 1,000 / 1,000 selected cases.</div>
-          </section>
-        </div>
-      </div>
+          <div class="card" style="box-shadow:none">
+            <div class="label">Case intake</div>
+            <h3 id="caseTitle">Representative public case</h3>
+            <p id="caseReason" class="small">The case enters review because the frozen analytical layer has produced a review signal. The exact private case score is not exposed in the public repository.</p>
+            <div class="answer"><b>Business question</b><br>Why should an investigator spend time on this payment, and what evidence should be reviewed before reaching a conclusion?</div>
+          </div>
 
-      <div class="card" style="margin-top:18px">
-        <h2>2. Evidence package</h2>
-        <p style="color:var(--muted);font-size:13px">The validated evidence store contains 30,000 records for 1,000 selected cases, averaging 30 records per case.</p>
-        <table class="table">
-          <thead><tr><th>Evidence class</th><th>Validated records</th><th>Coverage</th></tr></thead>
-          <tbody>
-            <tr><td>Transaction context</td><td>19,000</td><td>100%</td></tr>
-            <tr><td>Network context</td><td>6,000</td><td>100%</td></tr>
-            <tr><td>Model signal</td><td>3,000</td><td>100%</td></tr>
-            <tr><td>Behavior context</td><td>2,000</td><td>100%</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="card" style="margin-top:18px">
-        <h2>3. AI-assisted investigation</h2>
-        <div class="analysis" id="analysis">
-          <b>Agent status:</b> waiting for investigator to start the demonstration.<br><br>
-          The production-style flow is:<br>
-          <span class="citation">model signal</span>
-          →
-          <span class="citation">retrieved evidence</span>
-          →
-          <span class="citation">evidence-cited findings</span>
-          →
-          <span class="citation">investigator review</span>
-          <br><br>
-          <span style="color:#93c5fd"><b>Important:</b> the public repository does not contain the private text generated by the 32 successful AI investigations. This demo therefore shows the validated workflow rather than inventing a case narrative.</span>
+          <div class="card" style="box-shadow:none">
+            <div class="label">Signal context</div>
+            <div class="three">
+              <div class="evidence"><div class="title">Model signal</div><div class="meta">Available for 1,000 / 1,000 selected investigations.</div></div>
+              <div class="evidence"><div class="title">Transaction</div><div class="meta">Available for 1,000 / 1,000 selected investigations.</div></div>
+              <div class="evidence"><div class="title">Network</div><div class="meta">Available for 1,000 / 1,000 selected investigations.</div></div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="card" style="margin-top:18px">
-        <h2>4. Human decision point</h2>
-        <div class="two">
-          <button class="btn secondary" onclick="showOutcome('Continue review','The investigator continues reviewing the evidence package.')">Continue review</button>
-          <button class="btn secondary" onclick="showOutcome('Request more evidence','The investigator requests additional context before reaching a conclusion.')">Request more evidence</button>
+        <div class="card" style="margin-top:14px;box-shadow:none">
+          <div class="label">Evidence package</div>
+          <h3>What the assistant has available</h3>
+          <div class="three">
+            <div class="evidence"><div class="title">Transaction context</div><div class="meta"><b>19,000</b> validated records across the selected investigation population.</div></div>
+            <div class="evidence"><div class="title">Network context</div><div class="meta"><b>6,000</b> validated records describing payment relationships.</div></div>
+            <div class="evidence"><div class="title">Behavior context</div><div class="meta"><b>2,000</b> validated records.</div></div>
+          </div>
+          <div class="evidence" style="margin-top:10px"><div class="title">Model signal</div><div class="meta"><b>3,000</b> validated model-signal evidence records. The evidence layer does not include validation-only ground truth.</div></div>
         </div>
-        <p id="outcome" style="margin-bottom:0;color:var(--muted)">The prototype supports investigation; it does not automatically close or clear a case.</p>
-      </div>
-    </main>
-  </div>
+
+        <div class="card" style="margin-top:14px;box-shadow:none">
+          <div class="label">Assistant output</div>
+          <h3>Evidence-grounded investigation narrative</h3>
+          <div class="analysis" id="analysis">
+            <div class="head">Assistant status</div>
+            Waiting for the investigator to start the walkthrough.<br><br>
+            The public demonstration follows the validated sequence:<br>
+            <span class="citation">model signal</span>
+            → <span class="citation">retrieved evidence</span>
+            → <span class="citation">structured investigation</span>
+            → <span class="citation">human review</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px;box-shadow:none">
+          <div class="label">Decision point</div>
+          <h3>Human investigator retains control</h3>
+          <div class="decision-row">
+            <button class="decision" onclick="showDecision('Continue review','Continue examining the available evidence package.')"><b>Continue review</b><span class="small">Keep the case open for further review.</span></button>
+            <button class="decision" onclick="showDecision('Request more evidence','Request additional evidence before making a case determination.')"><b>Request more evidence</b><span class="small">Gather more contextual information first.</span></button>
+            <button class="decision" onclick="showDecision('Escalate for review','Escalate the case to the appropriate human review process.')"><b>Escalate for review</b><span class="small">Move the case to the next human review stage.</span></button>
+          </div>
+          <div id="decisionResult" class="success" style="margin-top:12px">No decision has been selected.</div>
+        </div>
+
+        <div class="warning" style="margin-top:14px">
+          <b>Interpretation boundary:</b> this public page demonstrates how the assistant is intended to support investigation. It does not create a new model score, use validation-only ground truth, or automatically close a case. The persisted AI validation covered 32 successful investigations; the public repository intentionally does not invent the missing case narratives.
+        </div>
+      </main>
+    </div>
+  </section>
 </div>
-<div class="footer">Stakeholder-facing demonstration • Synthetic research prototype • AI findings are not fabricated in this public demo</div>
+<div class="footer">Evidence-grounded AML investigation prototype • Synthetic research environment • Human review remains required</div>
 <script>
 const steps=['s1','s2','s3','s4','s5'];
-const runBtn=document.getElementById('runBtn');
 const analysis=document.getElementById('analysis');
-const reason=document.getElementById('reason');
+const agentState=document.getElementById('agentState');
 const title=document.getElementById('caseTitle');
-let timer=null;
+const reason=document.getElementById('caseReason');
+const runBtn=document.getElementById('runBtn');
+const resetBtn=document.getElementById('resetBtn');
+let timers=[];
+function clearTimers(){timers.forEach(clearTimeout);timers=[];}
 function clearSteps(){steps.forEach(id=>document.getElementById(id).className='step');}
-function advance(i){
-  for(let j=0;j<=i;j++) document.getElementById(steps[j]).className='step '+(j<i?'done':'on');
-}
-function start(){
-  clearTimeout(timer);
-  clearSteps();
+function advance(i){steps.forEach((id,j)=>document.getElementById(id).className='step '+(j<i?'done':j===i?'on':''));}
+function startWalkthrough(){
+  clearTimers(); clearSteps();
   const mode=document.getElementById('caseSelect').value;
-  const labels={demo:'Demonstration investigation',model:'Model-led investigation',network:'Network-context review'};
+  const labels={representative:'Representative public case',model:'Model-led review',network:'Network-context review'};
   title.textContent=labels[mode];
-  reason.textContent='The selected case enters the workflow because the frozen analytical layer has produced a review signal. The public page does not invent a private case score or private transaction details.';
+  reason.textContent='The selected case enters the investigation workflow because the frozen analytical layer has produced a review signal. The private numerical score is intentionally not reproduced on the public page.';
+  agentState.textContent='Case intake started';
   advance(0);
-  timer=setTimeout(()=>{advance(1);},650);
-  timer=setTimeout(()=>{advance(2);},1350);
-  timer=setTimeout(()=>{advance(3); analysis.innerHTML='<b>Agent status:</b> evidence assembled.<br><br>The validated investigation workflow uses the model signal together with transaction, network and behavioral evidence, then generates an evidence-cited investigator work product.<br><br><span class="citation">Model signal</span><span class="citation">Transaction context</span><span class="citation">Network context</span><span class="citation">Behavior context</span><br><br><span style="color:#93c5fd"><b>Public-demo limitation:</b> the exact text of the 32 persisted successful AI investigations is not included in this repository, so no case-level conclusion is fabricated here.</span>';},2050);
-  timer=setTimeout(()=>{advance(4);},2850);
+  timers.push(setTimeout(()=>{agentState.textContent='Reviewing analytical signal';advance(1);},700));
+  timers.push(setTimeout(()=>{agentState.textContent='Assembling evidence';advance(2);},1450));
+  timers.push(setTimeout(()=>{agentState.textContent='Generating investigation work product';advance(3);analysis.innerHTML='<div class="head">Public demonstration narrative</div><p><b>Review basis:</b> the case is supported by a frozen model signal and a validated evidence package containing transaction, network, and behavioral context.</p><p><b>Evidence available:</b> the validated population shows complete model-signal, transaction, network, behavioral, minimum-evidence, multi-source, and GOOD/RICH coverage.</p><p><b>Investigation posture:</b> the assistant organizes the evidence into an investigator-facing summary and references the supporting evidence. It does not independently determine wrongdoing, alter the model score, or access validation-only ground truth.</p><p><span class="citation">Model signal</span><span class="citation">Transaction context</span><span class="citation">Network context</span><span class="citation">Behavior context</span></p><p style="color:#93c5fd"><b>Public-demo disclosure:</b> this is a representative walkthrough. The exact text of the 32 persisted successful AI investigations is not included in the public repository.</p>';},2300));
+  timers.push(setTimeout(()=>{agentState.textContent='Ready for human decision';advance(4);},3200));
 }
-function reset(){clearTimeout(timer);clearSteps();analysis.innerHTML='<b>Agent status:</b> waiting for investigator to start the demonstration.<br><br>The production-style flow is:<br><span class="citation">model signal</span> → <span class="citation">retrieved evidence</span> → <span class="citation">evidence-cited findings</span> → <span class="citation">investigator review</span>';document.getElementById('outcome').textContent='The prototype supports investigation; it does not automatically close or clear a case.';}
-function showOutcome(label,text){document.getElementById('outcome').innerHTML='<b>'+label+':</b> '+text;}
-runBtn.addEventListener('click',start);document.getElementById('resetBtn').addEventListener('click',reset);
+function reset(){clearTimers();clearSteps();agentState.textContent='Ready for investigator';title.textContent='Representative public case';reason.textContent='The case enters review because the frozen analytical layer has produced a review signal. The exact private case score is not exposed in the public repository.';analysis.innerHTML='<div class="head">Assistant status</div>Waiting for the investigator to start the walkthrough.<br><br>The public demonstration follows the validated sequence:<br><span class="citation">model signal</span> → <span class="citation">retrieved evidence</span> → <span class="citation">structured investigation</span> → <span class="citation">human review</span>';document.getElementById('decisionResult').textContent='No decision has been selected.';}
+function showDecision(label,text){document.getElementById('decisionResult').innerHTML='<b>'+label+':</b> '+text;}
+runBtn.addEventListener('click',startWalkthrough);resetBtn.addEventListener('click',reset);
 </script>
 </body>
 </html>

@@ -1,34 +1,23 @@
-# Stakeholder Investigation Agent Demo
+# Stakeholder Investigation Assistant
 
 ## Purpose
 
-`agent_demo.html` is the stakeholder-facing demonstration of the investigation workflow.
+This page demonstrates the user experience of an AML investigation assistant for non-technical stakeholders.
 
-It shows how a case moves from:
+## Walkthrough
 
-`model signal → contextual evidence → AI-assisted analysis → human review`
+1. Select a review scenario.
+2. Review why the case entered the investigation workflow.
+3. Inspect the validated evidence categories.
+4. View the representative assistant work product.
+5. Reach the human investigator decision point.
 
-## Important public-repository boundary
+## Public-demo boundary
 
-The project validated 32 successful AI investigations with fully cited successful findings and zero invalid evidence citations. The private text of those 32 investigations is not included in the public repository.
+The public repository does not contain the private text of the 32 successful AI investigations. The walkthrough therefore uses a clearly labelled representative public narrative and never fabricates a private case finding.
 
-Therefore this page does **not fabricate or simulate case-level AI findings as if they were real persisted outputs**. It demonstrates the validated user workflow and displays only project-level evidence that is publicly supported.
+The validated project reports 32 successful persisted AI investigations, 100% fully cited successful findings, and 0 invalid evidence citations.
 
-## Intended audience
+## Live page
 
-- AML operations
-- AML investigators
-- Compliance / model risk
-- Banking transformation teams
-- Data science / AI reviewers
-- Recruiters and interviewers
-
-## Expected stakeholder journey
-
-1. Select a case.
-2. See why a model-signal case enters review.
-3. See the evidence categories available to the investigator.
-4. See where evidence-cited AI analysis appears.
-5. Make a human investigation choice.
-
-The prototype remains a decision-support workflow rather than an autonomous case-closure mechanism.
+`agent_demo.html` is published by the repository's GitHub Pages workflow.
