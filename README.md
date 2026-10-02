@@ -212,7 +212,7 @@ The repository contains a presentation-oriented dashboard designed to move from 
 ### Dashboard entry point
 
 [`dashboard/index.html`](dashboard/index.html)
-
+[`dashboard/agent.html`](https://sagniksanyal99.github.io/Swift-Aml-Investigation_Agent/agent_demo.html)
 ### Live demonstration
 
 Enable GitHub Pages for the `dashboard/` directory and publish the dashboard as the public demonstration site.
